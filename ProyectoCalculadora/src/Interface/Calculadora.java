@@ -4,18 +4,24 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import Negocio.OperacionesMatematicas;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Calculadora implements ActionListener{
+public class Calculadora extends JFrame implements ActionListener{
 
 	private JFrame frame;
 	private JTextField textNumero1;
 	private JTextField textNum2;
 	private JButton btnSumar , btnResta , btnDividir , btnMultiplicar;
+	private OperacionesMatematicas _misOperaciones;
 	/**
 	 * Launch the application.
 	 */
@@ -36,13 +42,17 @@ public class Calculadora implements ActionListener{
 	 * Create the application.
 	 */
 	public Calculadora() {
+		
 		initialize();
+		_misOperaciones= new OperacionesMatematicas(null, null);
+		
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 444, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,6 +76,7 @@ public class Calculadora implements ActionListener{
 		frame.getContentPane().add(textNum2);
 		textNum2.setColumns(10);
 		
+		
 		JLabel lblNumOP1 = new JLabel("Numero 1 :");
 		lblNumOP1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNumOP1.setBounds(10, 80, 120, 20);
@@ -76,31 +87,60 @@ public class Calculadora implements ActionListener{
 		lblNumeroOP2.setBounds(10, 128, 71, 20);
 		frame.getContentPane().add(lblNumeroOP2);
 		
-		 btnSumar = new JButton("Suma");
-		btnSumar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btnSumar = new JButton("Suma");
+		btnSumar.addActionListener(this);
 		btnSumar.setBounds(41, 183, 89, 23);
 		frame.getContentPane().add(btnSumar);
 		
 		btnResta = new JButton("Resta");
+		btnResta.addActionListener(this);
 		btnResta.setBounds(144, 183, 89, 23);
 		frame.getContentPane().add(btnResta);
 		
 		btnMultiplicar = new JButton("Multiplicar");
+		btnMultiplicar.addActionListener(this);
 		btnMultiplicar.setBounds(254, 183, 89, 23);
 		frame.getContentPane().add(btnMultiplicar);
 		
 	    btnDividir = new JButton("Dividir");
+	    btnDividir.addActionListener(this);
 		btnDividir.setBounds(144, 227, 89, 23);
 		frame.getContentPane().add(btnDividir);
+		
+		
 	}
 //////////////////////
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		
+		if (btnSumar == e.getSource()) {
+			int num1= Integer.parseInt(textNumero1.getText());
+			int num2 = Integer.parseInt(textNum2.getText());
+			int Resultado = _misOperaciones.Sumar(num1, num2);
+			JOptionPane.showMessageDialog(null, "Total : " + Resultado);
+			
+		}
+		if (btnResta == e.getSource()) {
+			int num1= Integer.parseInt(textNumero1.getText());
+			int num2 = Integer.parseInt(textNum2.getText());
+			int Resultado = _misOperaciones.Restar(num1, num2);
+			JOptionPane.showMessageDialog(null, " Total : " + Resultado);
+			
+		}
+		if (btnMultiplicar == e.getSource()) {
+			int num1= Integer.parseInt(textNumero1.getText());
+			int num2 = Integer.parseInt(textNum2.getText());
+			int Resultado = _misOperaciones.multiplicar(num1, num2);
+			JOptionPane.showMessageDialog(null, " Total : " + Resultado);
+			
+		}
+		if (btnDividir == e.getSource()) {
+			int num1= Integer.parseInt(textNumero1.getText());
+			int num2 = Integer.parseInt(textNum2.getText());
+			int Resultado = _misOperaciones.dividir(num1, num2);
+			JOptionPane.showMessageDialog(null, "Total : " + Resultado);
+			
+		}
 	}
+
 }
