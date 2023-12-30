@@ -21,7 +21,9 @@ public class OperacionesMatematicas {
 	}
 	public String dividir (int num1 , int num2) {
 		if (num2 != 0 ) {
-			return  " " +  (num1 / num2);
+			double num= num1;
+			double nume2 = num2;
+			return  " " +  (num / nume2);
 		}
 		return "no se puede dividir por 0 ";
 	}
