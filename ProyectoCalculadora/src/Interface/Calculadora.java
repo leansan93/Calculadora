@@ -37,8 +37,6 @@ public class Calculadora {
 	 */
 	public Calculadora() {
 		initialize();
-		frame.setTitle("Operaciones Matetamticas");
-		frame.setLocationRelativeTo(null);
 	}
 
 	/**
@@ -49,7 +47,8 @@ public class Calculadora {
 		frame.setBounds(100, 100, 444, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-        
+        frame.setTitle("Operaciones Matetamticas");
+		frame.setLocationRelativeTo(null);
 		
 		
 		JLabel lblTitulo = new JLabel("Calculadora ");
