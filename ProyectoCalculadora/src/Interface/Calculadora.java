@@ -22,6 +22,7 @@ public class Calculadora extends JFrame implements ActionListener{
 	private JTextField textNum2;
 	private JButton btnSumar , btnResta , btnDividir , btnMultiplicar;
 	private OperacionesMatematicas _misOperaciones;
+	private JLabel lblResultado;
 	/**
 	 * Launch the application.
 	 */
@@ -54,7 +55,7 @@ public class Calculadora extends JFrame implements ActionListener{
 	private void initialize() {
 		
 		frame = new JFrame();
-		frame.setBounds(100, 100, 444, 300);
+		frame.setBounds(100, 100, 444, 353);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
         frame.setTitle("Operaciones Matetamticas");
@@ -107,6 +108,10 @@ public class Calculadora extends JFrame implements ActionListener{
 		btnDividir.setBounds(144, 227, 89, 23);
 		frame.getContentPane().add(btnDividir);
 		
+		lblResultado = new JLabel("");
+		lblResultado.setBounds(10, 278, 395, 14);
+		frame.getContentPane().add(lblResultado);
+		
 		
 	}
 //////////////////////
@@ -117,28 +122,30 @@ public class Calculadora extends JFrame implements ActionListener{
 			int num1= Integer.parseInt(textNumero1.getText());
 			int num2 = Integer.parseInt(textNum2.getText());
 			int Resultado = _misOperaciones.Sumar(num1, num2);
-			JOptionPane.showMessageDialog(null, "Total : " + Resultado);
+			lblResultado.setText("la Suma es : " + Resultado);
 			
 		}
 		if (btnResta == e.getSource()) {
 			int num1= Integer.parseInt(textNumero1.getText());
 			int num2 = Integer.parseInt(textNum2.getText());
 			int Resultado = _misOperaciones.Restar(num1, num2);
-			JOptionPane.showMessageDialog(null, " Total : " + Resultado);
-			
+			lblResultado.setText("la Resta es : " + Resultado);
+		
 		}
 		if (btnMultiplicar == e.getSource()) {
 			int num1= Integer.parseInt(textNumero1.getText());
 			int num2 = Integer.parseInt(textNum2.getText());
 			int Resultado = _misOperaciones.multiplicar(num1, num2);
-			JOptionPane.showMessageDialog(null, " Total : " + Resultado);
+			lblResultado.setText("la multiplicacion es : " + Resultado);
+		
 			
 		}
 		if (btnDividir == e.getSource()) {
 			int num1= Integer.parseInt(textNumero1.getText());
 			int num2 = Integer.parseInt(textNum2.getText());
-			int Resultado = _misOperaciones.dividir(num1, num2);
-			JOptionPane.showMessageDialog(null, "Total : " + Resultado);
+			String Resultado = _misOperaciones.dividir(num1, num2);
+			lblResultado.setText("la division es : " + Resultado);
+		
 			
 		}
 	}
