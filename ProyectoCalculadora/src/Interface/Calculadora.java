@@ -59,7 +59,8 @@ public class Calculadora extends JFrame implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
         frame.setTitle("Operaciones Matetamticas");
-		frame.setLocationRelativeTo(null);
+        frame.setResizable(false); // no permite agrandar la pantalla 
+		frame.setLocationRelativeTo(null); // centraliza la pantalla 
 		
 		
 		JLabel lblTitulo = new JLabel("Calculadora ");
@@ -114,7 +115,8 @@ public class Calculadora extends JFrame implements ActionListener{
 		
 		
 	}
-//////////////////////
+///////////////////////////////////////////////////////////////////////
+//// eventos de los botones 
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
