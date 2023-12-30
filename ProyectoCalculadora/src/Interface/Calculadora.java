@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
 
 public class Calculadora extends JFrame implements ActionListener{
 
-	private JFrame frame;
+	public JFrame frame;
 	private JTextField textNumero1;
 	private JTextField textNum2;
 	private JButton btnSumar , btnResta , btnDividir , btnMultiplicar;
@@ -26,18 +26,7 @@ public class Calculadora extends JFrame implements ActionListener{
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Calculadora window = new Calculadora();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the application.
