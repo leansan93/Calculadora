@@ -10,12 +10,12 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Calculadora {
+public class Calculadora implements ActionListener{
 
 	private JFrame frame;
 	private JTextField textNumero1;
 	private JTextField textNum2;
-
+	private JButton btnSumar , btnResta , btnDividir , btnMultiplicar;
 	/**
 	 * Launch the application.
 	 */
@@ -76,7 +76,7 @@ public class Calculadora {
 		lblNumeroOP2.setBounds(10, 128, 71, 20);
 		frame.getContentPane().add(lblNumeroOP2);
 		
-		JButton btnSumar = new JButton("Suma");
+		 btnSumar = new JButton("Suma");
 		btnSumar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -84,16 +84,23 @@ public class Calculadora {
 		btnSumar.setBounds(41, 183, 89, 23);
 		frame.getContentPane().add(btnSumar);
 		
-		JButton btnResta = new JButton("Resta");
+		btnResta = new JButton("Resta");
 		btnResta.setBounds(144, 183, 89, 23);
 		frame.getContentPane().add(btnResta);
 		
-		JButton btnMultiplicar = new JButton("Multiplicar");
+		btnMultiplicar = new JButton("Multiplicar");
 		btnMultiplicar.setBounds(254, 183, 89, 23);
 		frame.getContentPane().add(btnMultiplicar);
 		
-		JButton btnDividir = new JButton("Dividir");
+	    btnDividir = new JButton("Dividir");
 		btnDividir.setBounds(144, 227, 89, 23);
 		frame.getContentPane().add(btnDividir);
+	}
+//////////////////////
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		
 	}
 }
